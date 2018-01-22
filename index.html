@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app = 'myApp'>
+	<head>
+		<title>My App</title>
+		<LINK rel = 'stylesheet' href = 'css/font-awesome.min.css'>
+		<LINK rel = 'stylesheet' href = 'css/bootstrap.min.css'>
+		<LINK rel = 'stylesheet' href = 'css/mdb.min.css'>
+		<LINK rel = 'stylesheet' href = 'css/style.css'>
+		<LINK rel = 'stylesheet' href = 'css/toastr.min.css'>
+	</head>
+	<body>
+		<!-- - - - - - - - - - - - - - -	Header Part - - - - - - - - - - - - - - - - - - - - - - - 
+		- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<header ng-controller = 'MenuCtrl'>
+			<div ng-include = "'menu.html'"></div>
+		</header>
+
+		<!-- - - - - - - - - - - - - - -	Main Part - - - - - - - - - - - - - - - - - - - - - - - 
+		- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<main>
+			<div class = 'container' style = 'padding: 20px;'>
+				<div ng-view></div>
+			</div>
+		</main><br clear = 'both'>
+
+		<!-- - - - - - - - - - - - - - -	Footer Part - - - - - - - - - - - - - - - - - - - - - - - 
+		- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->	
+		<div ng-include = "'footer.html'"></div>		
+	</body>
+
+	<!-- - - - - - - - - - - - - - -	Script Files for Bootstrap - - - - - - - - - - - - - - - - - - - - - - - 
+	- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<script src = 'js/jquery.min.js'></script>
+	<script src = 'js/popper.min.js'></script>
+	<script src = 'js/bootstrap.min.js'></script>
+	<script src = 'js/mdb.min.js'></script>
+	<script src = 'js/toastr.min.js'></script>
+
+	<!-- - - - - - - - - - - - - - -	Script Files for Angular JS - - - - - - - - - - - - - - - - - - - - - - - - 
+	- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<script src = 'js/angular.min.js'></script>
+	<script src = 'js/angular-route.min.js'></script>
+
+	<!-- - - - - - - - - - - - - - -	Custom Script Files  - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<script src = 'js/factory/mainFact.js'></script>
+	<script src = 'js/controller/mainCtrl.js'></script>
+	<script src = 'js/route/ng-route.js'></script>
+</html>
