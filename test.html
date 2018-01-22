@@ -1,0 +1,17 @@
+<div ng-repeat = "test in questions.testData" class = 'container col-md-8'>
+	<div class = 'card'>
+		<div class = 'card-header'>
+			<legend>{{test.test_name}} Test</legend>
+		</div>
+		<div class = 'card-body' id = 'main-part'>			
+			<b>{{queno+1}}. {{ test.questions[queno].question }}</b>
+			<div ng-repeat = 'option in test.questions[queno].options'>
+				<input type = 'radio' name = '{{queno}}' id = "{{$index}}" value = "{{$index}}" ng-click = "SaveAnswer($index)">
+				{{option}}
+			</div>
+		</div>
+		<div class = 'card-footer' id = 'btn-part'>
+			<a class = 'btn btn-primary btn-md' ng-click = "NextQuestion()" id = 'btn-next'>Next</a>			
+		</div>
+	</div>	
+</div>

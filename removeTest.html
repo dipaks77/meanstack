@@ -1,0 +1,33 @@
+<legend>List of Tests</legend>
+<hr>
+<div class = 'col-md-12'>
+	<div class = 'md-form'>
+		<input class = 'form-control' type = 'text' id = 'inputSearch' ng-model = 'inputSearch' />
+		<label for = 'inputSearch'>Search</label>
+	</div>
+</div>
+<table class = 'table table-bordered'>
+	<thead class = 'indigo text-white'>
+		<tr>
+			<th>#</th>
+			<th>Test Name</th>
+			<th>Total Questions</th>
+			<td>Delete</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat = 'test in Tests.testData|filter:inputSearch'>
+			<td>{{$index+1}}</td>
+			<td>{{test.test_name}}</td>
+			<td>{{test.total_que}}</td>
+			<td>
+				<input class = 'form-control' type = 'checkbox' id = '{{test._id}}' ng-click = "SaveThisBox(test._id)" value = '{{test._id}}' />				
+			</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<td colspan = '4' class = 'text-center'>
+			<a class = 'btn btn-danger btn-md' ng-click = 'RemoveTest()'>Delete</a>
+		</td>
+	</tfoot>
+</table>

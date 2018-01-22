@@ -1,0 +1,45 @@
+<div class = 'container'>
+	<div class = 'col-md-10 offset-md-1'>
+		<div class = 'card'>
+			<div class = 'card-header'>
+				<legend>Add Options</legend>
+			</div>
+			<div class = 'card-body'>
+				<div ng-repeat = 'que in Range(1,new_questions.total_que)'>
+					<div class = 'row'>
+						<strong>{{que}}. {{new_questions.questions[que-1]}}</strong>
+					</div>
+					<div class = 'row'>
+						<div class = 'col-md-6'>
+							<select class = 'browser-default form-control' ng-model = 'totalopt'>
+								<option selected disabled>Total Options for Question {{que}}</option>
+								<option ng-repeat = 'index in Range(2,4)'>{{index}}</option>
+							</select>
+						</div>						
+						<div class = 'col-md-6' ng-show = 'totalopt > 0'>
+							<div class = 'md-form'>
+								<select class = 'browser-default form-control' ng-model = 'new_test_ans[$index]'>
+									<option selected disabled>Answer of Question {{que}}</option>
+									<option ng-repeat = 'index in Range(1,totalopt)' value = '{{index-1}}'>{{index}}</option>
+								</select>
+							</div>
+						</div>						
+					</div>
+					<div class = 'row'>
+						<div ng-repeat = 'opt in Range(1,totalopt)'>
+							<div class = 'col-md-12'>
+								<div class = 'md-form'>
+									<input class = 'form-control' type = 'text' ng-model = 'new_test_options[que][opt-1]' id = 'opt_$index'>
+									<label for = 'opt_$index'>Option {{$index+1}}</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class = 'card-footer'>
+				<a class = 'btn btn-primary btn-md' ng-click = 'SubmitForm()'>Add Options</a>
+			</div>
+		</div>
+	</div>
+</div>

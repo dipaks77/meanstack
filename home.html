@@ -1,0 +1,28 @@
+<style>
+.pointer{
+	cursor: not-allowed !important;
+}
+</style>
+<legend>List of Test</legend>
+<hr>
+<div class = 'md-form'>
+	<input class = 'form-control' id = 'inputSearch' ng-model = 'inputSearch' type = 'text'>
+	<label for = 'inputSearch'>Search</label>
+</div>
+<table class = 'table'>
+	<thead class = 'indigo text-white' ng-init = "menus = ['#','Test Name','Total Questions','Actions']">
+		<tr>			
+			<th ng-repeat = 'menu in menus' ng-class = "{'text-center' : menu != 'Test Name'}">{{menu}}</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat = 'Test in Tests.testData | filter : inputSearch'>
+			<td class = 'text-center'>{{ $index+1 }}</td>
+			<td>{{ Test.test_name }}</td>
+			<td class = 'text-center'>{{ Test.total_que }}</td>
+			<td class = 'text-center'>
+				<a class = 'btn btn-warning btn-sm' href = "#!startTest/{{Test._id}}">Start Test</a>
+			</td>
+		</tr>
+	</tbody>
+</table>

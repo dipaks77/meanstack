@@ -1,0 +1,34 @@
+<div class = 'container'>
+	<div class = 'col-md-7 offset-md-2'>
+		<div class = 'card'>
+			<div class = 'card-header'>
+				<legend>Add Questions</legend>
+			</div>
+			<div class = 'card-body'>
+				<div ng-show = "new_test_name == ''">
+					<select ng-model = 'upd_test_id' class = 'browser-default form-control'>
+						<option selected disabled>Select Test</option>
+						<option ng-repeat = 'test in Tests' value = '{{test._id}}'>{{test.test_name}}</option>
+					</select>
+				</div>
+				<div class = 'col-md-4'>{{new_test_name}}
+					<div class = 'md-form'>
+						<input class = 'form-control' type = 'number' ng-model = 'new_test_total_que' id = 'new_test_total_que'>
+						<label for = 'new_test_total_que'>Total Questions</label>
+					</div>
+				</div>
+				<div ng-repeat = 'que in Range(1,new_test_total_que)'>
+					<div class = 'col-md-12'>
+						<div class = 'md-form'>						
+							<input class = 'form-control' type = 'text' ng-model = 'new_questions[$index]' id = '$index'>
+							<label for = '$index'>Question {{que}}</label>
+						</div>
+					</div>					
+				</div>
+			</div>
+			<div class = 'card-footer'>
+				<a class = 'btn btn-primary btn-md' ng-click = 'addQuestions()'>Add Questions</a>
+			</div>
+		</div>
+	</div>
+</div>

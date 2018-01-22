@@ -1,0 +1,38 @@
+<legend>List of Questions</legend>
+<hr>
+<div class = 'row'>
+	<div class = 'col-md-6'>
+		<div class = 'md-form'>
+			<input class = 'form-control' type = 'text' id = 'inputSearchTest' ng-model = 'inputSearchTest' />
+			<label for = 'inputSearchTest'>Search Test</label>
+		</div>
+	</div>
+	<div class = 'col-md-6'>
+		<div class = 'md-form'>
+			<input class = 'form-control' type = 'text' id = 'inputSearchQue' ng-model = 'inputSearchQue' />
+			<label for = 'inputSearchQue'>Search Question</label>
+		</div>
+	</div>
+</div>
+<table class = 'table table-bordered'>
+	<thead class = 'indigo text-white'>
+		<tr>
+			<th>#</th>
+			<th>Test Name</th>
+			<th>Questions</th>
+			<td>Delete</th>
+		</tr>
+	</thead>
+	<tbody ng-repeat = 'test in Tests | filter : inputSearchTest | filter : inputSearchQue'>		
+		<tr>
+			<th rowspan = '{{test.total_que+1}}' style = 'vertical-align: middle'>{{$index+1}}</td>
+			<th rowspan = '{{test.total_que+1}}' style = 'vertical-align: middle'>{{test.test_name}}</td>
+		</tr>
+		<tr ng-repeat = 'questions in test.questions | filter : inputSearchQue'>
+			<td><strong>({{$index+1}}).</strong> {{questions.question}}</td>
+			<td class = 'text-center'>
+				<a class = 'btn btn-danger btn-sm' ng-click = "SaveThisBox(test._id,$index)">Delete</a>
+			</td>
+		</tr>		
+	</tbody>	
+</table>
